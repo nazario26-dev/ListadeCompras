@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Compras</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 6h15l-1.5 9.5H7.5L6 6Z" />
+            <path d="M7 6V4a1 1 0 0 1 1-1h2" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="17" cy="20" r="1.5" />
+          </svg>
+        </span>
+        <div>
+          <h1>Lista de Compras</h1>
+          <p>Adicione itens, marque como comprados e gerencie sua lista de forma rápida.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="add-item-card" aria-label="Adicionar item à lista">
+      <form id="item-form" class="item-form">
+        <label for="item-input">Novo item</label>
+        <div class="input-row">
+          <input id="item-input" type="text" placeholder="Ex: Leite" aria-required="true" />
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+      <div class="controls">
+        <button id="clear-btn" class="btn btn-secondary" type="button">Limpar Todos</button>
+        <a class="btn btn-link" href="https://www.google.com/maps/search/mercados+perto+de+mim" target="_blank" rel="noreferrer noopener">Ver mercados próximos</a>
+      </div>
+    </section>
+
+    <section class="list-card" aria-label="Itens da lista de compras">
+      <h2>Itens</h2>
+      <p id="status-text" class="status-text">Nenhum item adicionado ainda.</p>
+      <ul id="item-list" class="item-list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+:root {
+  color-scheme: light;
+  color: #20222a;
+  background: #f7f8fb;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: radial-gradient(circle at top, rgba(79, 70, 229, 0.12), transparent 30%), #eef2ff;
+}
+
+.app-shell {
+  width: min(100%, 720px);
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 32px;
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+  padding: 2rem;
+}
+
+.app-header {
+  margin-bottom: 1.75rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  text-align: left;
+}
+
+.brand-icon {
+  width: 3rem;
+  height: 3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #eef2ff, #f0f9ff);
+  border-radius: 50%;
+  color: #4f46e5;
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.12);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 2.4vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+
+.app-header p {
+  margin: 0.55rem 0 0;
+  max-width: 34rem;
+  color: #51576d;
+  line-height: 1.65;
+}
+
+.add-item-card,
+.list-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 28px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.item-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #262b3a;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+}
+
+input {
+  width: 100%;
+  padding: 1rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  background: rgba(247, 249, 255, 0.95);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.12);
+}
+
+.btn {
+  border: none;
+  border-radius: 18px;
+  padding: 1rem 1.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.16);
+}
+
+.btn-secondary {
+  background: rgba(229, 231, 235, 0.85);
+  color: #1f2937;
+}
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #4f46e5;
+  border: 1px solid rgba(79, 70, 229, 0.25);
+  padding: 1rem 1.2rem;
+  border-radius: 18px;
+  text-decoration: none;
+  transition: background 150ms ease, transform 150ms ease, color 150ms ease;
+}
+
+.btn-link:hover {
+  background: rgba(79, 70, 229, 0.08);
+  color: #3730a3;
+}
+
+.controls {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.status-text {
+  margin: 0 0 1rem;
+  color: #6b7280;
+}
+
+.item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.item-list li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 1.1rem;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(247, 249, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.05);
+}
+
+.item-list label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.item-list input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  accent-color: #4f46e5;
+}
+
+.item-list span {
+  word-break: break-word;
+  color: #1f2937;
+}
+
+.item-list span.completed {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+@media (max-width: 520px) {
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    justify-content: center;
+  }
+}
