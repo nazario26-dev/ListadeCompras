@@ -154,8 +154,14 @@ input:focus {
 }
 
 .status-text {
-  margin: 0 0 1rem;
+  margin: 0 0 0.35rem;
   color: #6b7280;
+}
+
+.offline-note {
+  margin: 0 0 1rem;
+  color: #4f46e5;
+  font-size: 0.95rem;
 }
 
 .item-list {

@@ -9,13 +9,26 @@ const STORAGE_KEY = 'listaDeComprasItens';
 let items = [];
 
 function saveItems() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+  } catch (error) {
+    console.warn('Não foi possível salvar a lista:', error);
+  }
 }
 
 function loadItems() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
-    items = JSON.parse(saved);
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) {
+      items = [];
+      return;
+    }
+
+    const parsed = JSON.parse(saved);
+    items = Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    console.warn('Não foi possível carregar a lista salva:', error);
+    items = [];
   }
 }
 
@@ -24,8 +37,10 @@ function updateStatus() {
     statusText.textContent = 'Nenhum item adicionado ainda.';
     return;
   }
+
   const completed = items.filter(item => item.checked).length;
-  statusText.textContent = `${completed} de ${items.length} item(s) marcado(s).`;
+  const connectionLabel = navigator.onLine ? 'Conectado' : 'Offline';
+  statusText.textContent = `${completed} de ${items.length} item(s) marcado(s). • ${connectionLabel}`;
 }
 
 function renderList() {
@@ -100,3 +115,15 @@ clearBtn.addEventListener('click', () => {
 
 loadItems();
 renderList();
+updateStatus();
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(error => {
+      console.warn('Falha ao registrar o service worker:', error);
+    });
+  });
+}
+
+window.addEventListener('online', updateStatus);
+window.addEventListener('offline', updateStatus);

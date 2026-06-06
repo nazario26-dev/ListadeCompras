@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f46e5">
   <title>Lista de Compras</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -42,6 +44,7 @@
     <section class="list-card" aria-label="Itens da lista de compras">
       <h2>Itens</h2>
       <p id="status-text" class="status-text">Nenhum item adicionado ainda.</p>
+      <p id="offline-note" class="offline-note">Itens salvos localmente e disponíveis mesmo sem conexão.</p>
       <ul id="item-list" class="item-list"></ul>
     </section>
   </main>
